@@ -5,10 +5,10 @@ def main():
 
     #mercado_pago.executar()
     #redecard.executar()
-    skypostal.executar()
+    #skypostal.executar()
     #safra.executar()
     
-    #iniciar_agendador()
+    iniciar_agendador()
     
 if __name__ == "__main__":
     main()

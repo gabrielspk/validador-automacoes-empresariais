@@ -34,10 +34,11 @@ def fazer_download_arquivo_safra(driver):
         colunas = linha.find_elements(By.TAG_NAME, "td")
         if colunas:
             print(f"Download iniciado do arquivo de quantidade de linhas: {colunas[1].text}")
-            data_arquivo = colunas[1].text
+            data_hora_arquivo = colunas[1].text
             link_download = linha.find_element(By.CSS_SELECTOR, "a[ng-click='ctrl.download(item)']")
             link_download.click()
             time.sleep(5)
+            data, hora = data_hora_arquivo.split(' ')
             break
 
-    return data_arquivo
+    return data, hora

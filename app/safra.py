@@ -27,7 +27,7 @@ def executar():
         
         #Faz o processo de extração do arquivo
         navegar_para_retorno(driver_safra)
-        log_arquivo = fazer_download_arquivo_safra(driver_safra)
+        data, hora = fazer_download_arquivo_safra(driver_safra)
 
         #Realiza a extração da nomenclatura dos arquivos a serem enviados
         nomenclatura_arquivos = capturar_arquivos_envio_safra(BASE_DIR)
@@ -44,7 +44,7 @@ def executar():
         #realiza o envio do e-mail
         enviar_email(
         assunto="✅ RPA SAFRA - Execução Concluída com Sucesso.",
-        corpo=formatar_corpo_html_safra(log_arquivo, sucesso=True),
+        corpo=formatar_corpo_html_safra(data, hora, sucesso=True),
         destinatarios=EMAIL_DESTINO
     )
 
