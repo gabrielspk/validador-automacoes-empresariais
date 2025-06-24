@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "validador-psa"
+version = "1.5.1"
+description = "Sistema de validação de arquivos corporativos - Mercado Pago, Redecard, SkyPostal e Safra"
+authors = [
+  { name="Gabriel Ferreira", email="gabrielsilvaferreira007@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+  "pandas",
+  "openpyxl",
+  "ttkbootstrap",
+  "schedule"
+]
+
+[project.scripts]
+validador-psa = "src.main:main"
