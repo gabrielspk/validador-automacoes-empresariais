@@ -12,7 +12,7 @@ def validar_registros(relatorio_df, qtde_arquivos_rem):
         divergencias.append(f"❌ Divergência entre remessa ({remessa}) e FPL ({fpl})")
 
     if qtde_arquivos_rem < 3:
-        divergencias.append(f"❌ Deveria ter sido enviado 3 arquivos diários")
+        divergencias.append(f"❌ Deveria ter sido recebido 3 arquivos diários, foram recebidos {qtde_arquivos_rem}")
     
     return divergencias
     

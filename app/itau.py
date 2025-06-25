@@ -16,30 +16,27 @@ def executar():
     print("\n🟢 Iniciando processamento: ITAU")
 
     cliente = "itau"
-
     data_atual = datetime.date.today()
     data_atual_formatada = data_atual.strftime("%d/%m/%Y")
-    data_anterior = data_atual - datetime.timedelta(days=1)
-    data_anterior_formatada = data_anterior.strftime("%d/%m/%Y")
+
 
     #Faz o processo de RPA    
     driver = configurar_driver(headless=True)
     realizar_login_ga(driver, "logs")
-    baixar_planilha(driver, "CRD030PRI")
+    baixar_planilha(driver, "CRD030PRI", dias_pesquisa=0)
     driver.quit()
 
 
     origem = BASE_DIR / NOME_PLANILHA_ORIGINAL
     entrada_dir = CLIENTES_DIR[cliente]["entrada"]
     backup_dir = CLIENTES_DIR[cliente]["backup"]
-
     entrada_path, backup_path = mover_e_renomear_planilha(cliente, origem, entrada_dir, backup_dir)
+
 
     df = carregar_dados(entrada_path)
     if df is None:
         print("❌ Nenhum dado carregado para Itau")
         return
-    
     relatorio, validar_rem = gerar_relatorio(df)
     divergencias = validar_registros(relatorio, validar_rem)
 
