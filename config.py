@@ -38,6 +38,10 @@ CLIENTES_DIR = {
     },
     "safra": {
         "backup": BASE_DIR / "safra" / "backup"
+    },
+    "itau": {
+        "entrada": BASE_DIR / "itau" / "entrada",
+        "backup": BASE_DIR / "itau" / "backup"
     }
 }
 

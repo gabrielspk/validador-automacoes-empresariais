@@ -1,5 +1,5 @@
 from scheduler.agendador import iniciar_agendador
-from app import mercado_pago, redecard, skypostal, safra
+from app import mercado_pago, redecard, skypostal, safra, itau
 
 def main():
 
@@ -7,6 +7,7 @@ def main():
     #redecard.executar()
     #skypostal.executar()
     #safra.executar()
+    #itau.executar()
     
     iniciar_agendador()
     
