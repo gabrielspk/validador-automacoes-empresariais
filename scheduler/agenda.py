@@ -4,10 +4,11 @@ Formato: { cliente: [ 'HH:MM', ... ] }
 """
 
 VALIDACAO_HORARIOS = {
-    "mercado_pago": ["09:45"],
-    "redecard": ["09:45"],
-    "skypostal": ["09:45"],
-    "safra": ["09:45"]
+    "mercado_pago": ["09:30"],
+    "redecard": ["10:30"],
+    "skypostal": ["10:00"],
+    "safra": ["09:30"],
+    "itau": ["09:00"]
 }
 
 from scheduler.tarefas import MAPA_TAREFAS
@@ -19,6 +20,6 @@ def configurar_agendamentos():
         if tarefa:
             for horario in horarios:
                 schedule.every().day.at(horario).do(tarefa)
-                print(f"✅ Tarefa agendada: {cliente} às {horario}")
+                print(f"🔁 Criando agendamento para {cliente} às {horario} | id da função: {id(tarefa)}")
         else:
             print(f"⚠️ Nenhuma tarefa definida para: {cliente}")
