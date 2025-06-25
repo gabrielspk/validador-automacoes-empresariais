@@ -5,8 +5,15 @@ from openpyxl.styles import PatternFill
 def gerar_relatorio(df):
     df['Nome Arquivo'] = df['Nome Arquivo'].str.lower()
     
-    originais = df[df['Nome Arquivo'].str.contains('_0', na=False) & ~df['Status'].str.contains('Corrigido|Erro', na=False)]
-    corrigidos = df[df['Nome Arquivo'].str.contains('_0', na=False) & df['Status'].str.contains('Corrigido', na=False)]
+    originais = df[df['Nome Arquivo'].str.contains('_0', na=False) & 
+                   ~df['Status'].str.contains('Corrigido|Erro', na=False) &
+                   ~df['Processo'].str.contains('MERCADO_PAGO_EXPEDICAO_BACKUP', na=False)
+                   ]
+    
+    corrigidos = df[df['Nome Arquivo'].str.contains('_0', na=False) 
+                    & df['Status'].str.contains('Corrigido', na=False)
+                    ]
+    
     erros = df[df['Nome Arquivo'].str.contains('_0', na=False) & df['Status'].str.contains('Erro', na=False)]
 
     total_originais = len(originais)
