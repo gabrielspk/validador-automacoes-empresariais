@@ -1,4 +1,4 @@
-from config import GA_EMAIL, GA_SENHA, EMAIL_DESTINO, NOME_PLANILHA_ORIGINAL, CLIENTES_DIR, SAIDA_PATH, BASE_DIR
+from config import GA_EMAIL, GA_SENHA, EMAIL_DESTINO, EMAIL_DESTINO_PESSOAL, NOME_PLANILHA_ORIGINAL, CLIENTES_DIR, SAIDA_PATH, BASE_DIR
 from rpa.driver import configurar_driver
 from rpa.extrator_planilha_ga import baixar_planilha
 from rpa.autenticadores.login_ga import realizar_login_ga
@@ -59,7 +59,7 @@ def executar():
         if divergencias else
         f"✅ VALIDAÇÃO REDECARD {data_anterior_formatada} e {data_atual_formatada} - VALIDADO COM SUCESSO"
     )
-    enviar_email(assunto=assunto, corpo=corpo_email, destinatarios=EMAIL_DESTINO)
+    enviar_email(assunto=assunto, corpo=corpo_email, destinatarios=EMAIL_DESTINO_PESSOAL)
 
 
     #Move para backup
