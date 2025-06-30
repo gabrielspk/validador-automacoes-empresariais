@@ -4,10 +4,10 @@ Formato: { cliente: [ 'HH:MM', ... ] }
 """
 
 VALIDACAO_HORARIOS = {
-    "mercado_pago": ["09:30"],
+    "mercado_pago": ["09:45"],
     "redecard": ["10:30"],
     "skypostal": ["10:00"],
-    "safra": ["09:30"],
+    "safra": ["09:00"],
     "itau": ["09:00"]
 }
 
