@@ -38,14 +38,15 @@ def executar():
         
 
         #Realiza o envio do arquivo ao ga
-        enviar_arquivo_ga(driver_ga, nomenclatura_arquivos, backup_dir, "BANCO_SAFRA_SAOBSAF02_REM")
+        anexo = enviar_arquivo_ga(driver_ga, nomenclatura_arquivos, backup_dir, "BANCO_SAFRA_SAOBSAF02_REM")
         
 
         #realiza o envio do e-mail
         enviar_email(
         assunto="✅ RPA SAFRA - Execução Concluída com Sucesso.",
         corpo=formatar_corpo_html_safra(data, hora, sucesso=True),
-        destinatarios=EMAIL_DESTINO
+        destinatarios=EMAIL_DESTINO,
+        anexos=anexo
     )
 
     except Exception as e:
