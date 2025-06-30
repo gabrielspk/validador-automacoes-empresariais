@@ -44,9 +44,9 @@ def executar():
     corpo_tabela = gerar_tabela_html(relatorio)
     corpo_email = formatar_corpo_html(corpo_tabela, divergencias)
     assunto = (
-        f"⚠️ VALIDAÇÃO Itaú {data_atual_formatada} - VERIFICAR DIVERGÊNCIAS ENCONTRADAS"
+        f"⚠️ VALIDAÇÃO ITAÚ {data_atual_formatada} - VERIFICAR DIVERGÊNCIAS ENCONTRADAS"
         if divergencias else
-        f"✅ VALIDAÇÃO Itaú {data_atual_formatada} - VALIDADO COM SUCESSO"
+        f"✅ VALIDAÇÃO ITAÚ {data_atual_formatada} - VALIDADO COM SUCESSO"
     )
     enviar_email(assunto=assunto, corpo=corpo_email, destinatarios=EMAIL_DESTINO)
 
