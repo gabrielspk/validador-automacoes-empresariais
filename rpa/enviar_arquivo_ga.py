@@ -1,6 +1,7 @@
 import time
 import shutil
 from selenium.webdriver.common.by import By
+from base64 import b64encode
 
 def enviar_arquivo_ga(driver, nomenclatura_arquivos, backup_dir, nome_processo_ga):
     processo_box = driver.find_element(By.NAME, "nome-processo")
@@ -24,4 +25,21 @@ def enviar_arquivo_ga(driver, nomenclatura_arquivos, backup_dir, nome_processo_g
 
     shutil.move(arquivo, backup_dir)
     
-    time.sleep(100)
+    time.sleep(45)
+    
+    #Realiza captura de tela
+    screenshot_bytes = driver.get_screenshot_as_png()
+    
+    #Codifica em base64
+    screenshot_base64 = b64encode(screenshot_bytes).decode()
+
+    #Monta o anexo
+    anexos = [
+    {
+        "nome": "screenshot.png",
+        "tipo": "image/png",
+        "conteudo": screenshot_base64,
+    }
+]
+
+    return anexos

@@ -3,7 +3,7 @@ from requests.structures import CaseInsensitiveDict
 import json
 from config import HOST_SMTP, MAILGRID_USUARIO, MAILGRID_SENHA
 
-def enviar_email(assunto, corpo, destinatarios):
+def enviar_email(assunto, corpo, destinatarios, anexos=None):
     url = "https://api.mailgrid.net.br/send/"  # endpoint oficial
 
     headers = CaseInsensitiveDict()
@@ -23,6 +23,15 @@ def enviar_email(assunto, corpo, destinatarios):
         "mensagemTipo": "html",
         "mensagemEncoding": "quoted-printable"
     }
+
+    if anexos:
+        dados["mensagemAnexos"] = {
+            f"file{i+1}": {
+                "name": anexo["nome"],
+                "type": anexo["tipo"],
+                "content": anexo["conteudo"]
+            } for i, anexo in enumerate(anexos)
+        }
 
     # Convertendo para JSON string, como a API exige
     data_json = json.dumps(dados)

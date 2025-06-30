@@ -76,6 +76,7 @@ def formatar_corpo_html_safra(data: str = None, hora: str = None, erro: str = No
         corpo = f"""
         <p class="sucesso">✅ O RPA foi executado com sucesso.</p>
         <p>O arquivo de data <strong>{data}</strong> gerado às: <strong>{hora}</strong> foi enviado corretamente.</p>
+        <p>Print da evidência do envio em anexo.</p>
         """
     else:
         corpo = f"""
