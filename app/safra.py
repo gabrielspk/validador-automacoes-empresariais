@@ -38,7 +38,7 @@ def executar():
         
 
         #Realiza o envio do arquivo ao ga
-        enviar_arquivo_ga(driver_ga, nomenclatura_arquivos, backup_dir)
+        enviar_arquivo_ga(driver_ga, nomenclatura_arquivos, backup_dir, "BANCO_SAFRA_SAOBSAF02_REM")
         
 
         #realiza o envio do e-mail

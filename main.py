@@ -7,9 +7,9 @@ def main():
     #redecard.executar()
     #skypostal.executar()
     #safra.executar()
-    #itau.executar()
+    itau.executar()
     
-    iniciar_agendador()
+    #iniciar_agendador()
     
 if __name__ == "__main__":
     main()

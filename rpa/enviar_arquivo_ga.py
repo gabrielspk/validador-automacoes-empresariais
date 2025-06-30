@@ -2,9 +2,9 @@ import time
 import shutil
 from selenium.webdriver.common.by import By
 
-def enviar_arquivo_ga(driver, nomenclatura_arquivos, backup_dir):
+def enviar_arquivo_ga(driver, nomenclatura_arquivos, backup_dir, nome_processo_ga):
     processo_box = driver.find_element(By.NAME, "nome-processo")
-    processo_box.send_keys("BANCO_SAFRA_SAOBSAF02_REM")
+    processo_box.send_keys(nome_processo_ga)
     print("enviado nome do processo")
 
     time.sleep(4)
