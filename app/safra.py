@@ -30,7 +30,7 @@ def executar():
         data, hora = fazer_download_arquivo_safra(driver_safra)
 
         #Realiza a extração da nomenclatura dos arquivos a serem enviados
-        nomenclatura_arquivos = capturar_arquivos_envio_safra(BASE_DIR)
+        caminho_arquivo_completo, nomenclatura_arquivos = capturar_arquivos_envio_safra(BASE_DIR)
         
         
         #Realiza o Login no ga
@@ -38,13 +38,13 @@ def executar():
         
 
         #Realiza o envio do arquivo ao ga
-        anexo = enviar_arquivo_ga(driver_ga, nomenclatura_arquivos, backup_dir, "BANCO_SAFRA_SAOBSAF02_REM")
+        anexo = enviar_arquivo_ga(driver_ga, caminho_arquivo_completo, backup_dir, "BANCO_SAFRA_SAOBSAF02_REM")
         
 
         #realiza o envio do e-mail
         enviar_email(
         assunto="✅ RPA SAFRA - Execução Concluída com Sucesso.",
-        corpo=formatar_corpo_html_safra(data, hora, sucesso=True),
+        corpo=formatar_corpo_html_safra(data, hora, nomenclatura_arquivos, sucesso=True),
         destinatarios=EMAIL_DESTINO,
         anexos=anexo
     )
