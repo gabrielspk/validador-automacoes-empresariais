@@ -40,7 +40,7 @@ def formatar_corpo_html(tabela_html, divergencias):
 
     return f"<html><head>{estilo_base}</head><body>{corpo}</body></html>"
 
-def formatar_corpo_html_safra(data: str = None, hora: str = None, erro: str = None, sucesso: bool = True) -> str:
+def formatar_corpo_html_safra(data: str = None, hora: str = None, nomenclatura_arquivo: str = None, erro: str = None, sucesso: bool = True) -> str:
     estilo_base = """
     <style>
         body {{
@@ -75,7 +75,7 @@ def formatar_corpo_html_safra(data: str = None, hora: str = None, erro: str = No
     if sucesso:
         corpo = f"""
         <p class="sucesso">✅ O RPA foi executado com sucesso.</p>
-        <p>O arquivo de data <strong>{data}</strong> gerado às: <strong>{hora}</strong> foi enviado corretamente.</p>
+        <p>O arquivo de data <strong>{data}</strong> gerado às: <strong>{hora}</strong> de nomenclatura <strong>{nomenclatura_arquivo}</strong> foi enviado corretamente.</p>
         <p>Print da evidência do envio em anexo.</p>
         """
     else:

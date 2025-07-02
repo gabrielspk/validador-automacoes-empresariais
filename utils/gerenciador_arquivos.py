@@ -42,7 +42,7 @@ def mover_para_backup(origem: Path, destino: Path):
 def capturar_arquivos_envio_safra(entrada_dir):
     
     #Declara lista para armazenar o caminho completo dos arquivos
-    nomenclatura_arquivos = []
+    caminho_arquivo_completo = []
 
     for file in os.listdir(entrada_dir):
             
@@ -60,14 +60,18 @@ def capturar_arquivos_envio_safra(entrada_dir):
                 os.rename(caminho_atual, novo_caminho)
                     
                 #Armazena o novo caminho/arquivo na lista 
-                nomenclatura_arquivos.append(novo_caminho)
+                caminho_arquivo_completo.append(novo_caminho)
 
                 print(f"Arquivo renomeado de {caminho_atual} para {novo_caminho}")
+
+                nomenclatura_arquivos = [os.path.basename(caminho) for caminho in caminho_arquivo_completo]
 
             else:
                 print(f"Não há alterações a serem feitas no arquivo: {file}")
                 caminho_atual = os.path.join(entrada_dir, file)
                 #Adiciona o novo caminho/arquivo na lista
-                nomenclatura_arquivos.append(caminho_atual)
+                caminho_arquivo_completo.append(caminho_atual)
 
-    return nomenclatura_arquivos
+                nomenclatura_arquivos = [os.path.basename(caminho) for caminho in caminho_arquivo_completo]
+
+    return caminho_arquivo_completo, ", ".join(nomenclatura_arquivos)
