@@ -25,7 +25,7 @@ def enviar_arquivo_ga(driver, nomenclatura_arquivos, backup_dir, nome_processo_g
 
     shutil.move(arquivo, backup_dir)
     
-    time.sleep(45)
+    time.sleep(75)
     
     #Realiza captura de tela
     screenshot_bytes = driver.get_screenshot_as_png()
