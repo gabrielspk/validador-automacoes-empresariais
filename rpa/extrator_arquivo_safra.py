@@ -28,6 +28,8 @@ def fazer_download_arquivo_safra(driver):
     )
     
     linhas = tabela.find_elements(By.TAG_NAME, "tr")  #Encontra todas as linhas dentro do <tbody>
+
+    data = hora = None
     
     #laço para percorrer "tr" e seus respectivos "td"
     for linha in linhas:
@@ -41,4 +43,7 @@ def fazer_download_arquivo_safra(driver):
             data, hora = data_hora_arquivo.split(' ')
             break
 
-    return data, hora
+    if data and hora:
+        return data, hora
+    else:
+        return None
