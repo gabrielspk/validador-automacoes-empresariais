@@ -27,7 +27,17 @@ def executar():
         
         #Faz o processo de extração do arquivo
         navegar_para_retorno(driver_safra)
-        data, hora = fazer_download_arquivo_safra(driver_safra)
+
+        resultado = fazer_download_arquivo_safra(driver_safra)
+        if not resultado:
+            enviar_email(
+                assunto="ℹ️ RPA SAFRA - Sem Arquivos Pendentes",
+                corpo="Não foram encontrados arquivos pendentes para processamento no portal SAFRA.",
+                destinatarios=EMAIL_DESTINO
+            )
+            return
+        
+        data, hora = resultado
 
         #Realiza a extração da nomenclatura dos arquivos a serem enviados
         caminho_arquivo_completo, nomenclatura_arquivos = capturar_arquivos_envio_safra(BASE_DIR)
