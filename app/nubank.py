@@ -28,7 +28,7 @@ def executar():
     #Faz o processo de RPA
     driver = configurar_driver(headless=False)
     realizar_login_ga(driver, "logs")
-    baixar_planilha(driver, "nucell", None)
+    baixar_planilha(driver, "nucell")
     driver.quit() 
 
     #Declara os caminhos
