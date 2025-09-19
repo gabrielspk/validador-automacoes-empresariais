@@ -18,6 +18,7 @@ MAILGRID_SENHA = os.getenv("MAILGRID_SENHA")
 
 EMAIL_DESTINO = os.getenv("EMAIL_DESTINO").split(",")
 EMAIL_DESTINO_PESSOAL = os.getenv("EMAIL_DESTINO_PESSOAL").split(",")
+EMAIL_DESTINO_NUCELL = os.getenv("EMAIL_DESTINO_NUCELL").split(",")
 
 BASE_DIR = Path(r"C:\Users\gabriel.ferreira\Downloads")
 

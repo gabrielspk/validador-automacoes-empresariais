@@ -1,4 +1,4 @@
-from config import GA_EMAIL, GA_SENHA, EMAIL_DESTINO, NOME_PLANILHA_ORIGINAL, CLIENTES_DIR, SAIDA_PATH, BASE_DIR
+from config import GA_EMAIL, GA_SENHA, EMAIL_DESTINO_NUCELL, NOME_PLANILHA_ORIGINAL, CLIENTES_DIR, SAIDA_PATH, BASE_DIR
 from rpa.driver import configurar_driver
 from rpa.extrator_planilha_ga import baixar_planilha
 from rpa.autenticadores.login_ga import realizar_login_ga
@@ -46,7 +46,7 @@ def executar():
     corpo_email = formatar_corpo_html_anexo(cliente=cliente)
     assunto = (f"✅ Processamento Nubank - NUCELL {data_anterior_formatada} a {data_atual_formatada}"
     )
-    enviar_email(assunto=assunto, corpo=corpo_email, destinatarios=EMAIL_DESTINO, anexos=[anexo_planilha])
+    enviar_email(assunto=assunto, corpo=corpo_email, destinatarios=EMAIL_DESTINO_NUCELL, anexos=[anexo_planilha])
 
     #Move para backup
     mover_para_backup(entrada_path, backup_path)

@@ -24,5 +24,5 @@ MAPA_TAREFAS = {
     "skypostal": tarefa_skypostal,
     "safra": tarefa_safra,
     "itau":  tarefa_itau,
-    "itau": tarefa_nubank
+    "nubank": tarefa_nubank
 }

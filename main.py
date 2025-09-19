@@ -8,9 +8,9 @@ def main():
     #skypostal.executar()
     #safra.executar()
     #itau.executar()
-    nubank.executar()
+    #nubank.executar()
     
-    #iniciar_agendador()
+    iniciar_agendador()
     
 if __name__ == "__main__":
     main()
