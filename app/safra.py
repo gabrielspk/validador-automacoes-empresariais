@@ -68,7 +68,7 @@ def executar():
         print(f"Ocorreu um erro: {e}")
     
     finally:
-        driver_safra.quit
+        driver_safra.quit()
         driver_ga.quit()
     
     print(f"✅ Processamento finalizado: {cliente.upper()}")
