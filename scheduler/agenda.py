@@ -8,7 +8,8 @@ VALIDACAO_HORARIOS = {
     "redecard": ["10:30"],
     "skypostal": ["10:00"],
     "safra": ["09:00"],
-    "itau": ["09:00"]
+    "itau": ["09:00"],
+    "nubank": ["07:00"]
 }
 
 from scheduler.tarefas import MAPA_TAREFAS

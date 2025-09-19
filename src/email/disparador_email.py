@@ -27,9 +27,9 @@ def enviar_email(assunto, corpo, destinatarios, anexos=None):
     if anexos:
         dados["mensagemAnexos"] = {
             f"file{i+1}": {
-                "name": anexo["nome"],
-                "type": anexo["tipo"],
-                "content": anexo["conteudo"]
+                "name": anexo["name"],
+                "type": anexo["type"],
+                "content": anexo["content"]
             } for i, anexo in enumerate(anexos)
         }
 

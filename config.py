@@ -42,6 +42,10 @@ CLIENTES_DIR = {
     "itau": {
         "entrada": BASE_DIR / "itau" / "entrada",
         "backup": BASE_DIR / "itau" / "backup"
+    },
+    "nubank": {
+        "entrada": BASE_DIR / "nubank" / "entrada",
+        "backup": BASE_DIR / "nubank" / "backup"
     }
 }
 

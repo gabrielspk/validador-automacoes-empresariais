@@ -36,9 +36,9 @@ def enviar_arquivo_ga(driver, nomenclatura_arquivos, backup_dir, nome_processo_g
     #Monta o anexo
     anexos = [
     {
-        "nome": "screenshot.png",
-        "tipo": "image/png",
-        "conteudo": screenshot_base64,
+        "name": "screenshot.png",
+        "type": "image/png",
+        "content": screenshot_base64,
     }
 ]
 

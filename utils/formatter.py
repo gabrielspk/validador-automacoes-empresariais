@@ -40,6 +40,33 @@ def formatar_corpo_html(tabela_html, divergencias):
 
     return f"<html><head>{estilo_base}</head><body>{corpo}</body></html>"
 
+def formatar_corpo_html_anexo(cliente: str) -> str:
+    estilo_base = """
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.6;
+        }}
+        p {{
+            margin: 16px 0;
+            font-size: 14px;
+        }}
+        .info {{
+            color: #31708f;
+            font-weight: bold;
+        }}
+    </style>
+    """
+
+    corpo = f"""
+    <p>Bom dia</p>
+    <p>Segue relatório de processamento de arquivos do cliente {cliente} em anexo.</p>
+    """
+
+    return f"<html><head>{estilo_base}</head><body>{corpo}</body></html>"
+
 def formatar_corpo_html_safra(data: str = None, hora: str = None, nomenclatura_arquivo: str = None, erro: str = None, sucesso: bool = True) -> str:
     estilo_base = """
     <style>
